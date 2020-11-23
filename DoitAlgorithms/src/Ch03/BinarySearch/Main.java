@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int[] array = {1,2,5,7,10,15,20,30,46,59,60,64,67,69,70,73,74,77,79,80,83,85,87,89};
+        int[] array = {1,2,5,7,10,15,20,30,46,59,60,69,69,69,70,73,74,77,79,80,83,85,87,89};
         int[] randArray = new int[1000];
         
         randArray[0] = 0;
@@ -24,7 +24,8 @@ public class Main {
             randArray[i] = randArray[i - 1] + (int)(Math.random() * 9);
         }
         
-        System.out.println(BinarySearch.binarySearch(array, 69));
+        //System.out.println(BinarySearch.binarySearch(array, 69));
+        System.out.println("data는 array[" + BinarySearchFirst.binarySearchFirst(array, 69) + "]에 있습니다.");
     }
     
 }
