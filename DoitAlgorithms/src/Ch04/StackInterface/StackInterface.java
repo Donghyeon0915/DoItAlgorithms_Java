@@ -6,7 +6,7 @@
 package Ch04.StackInterface;
 
 /**
- *
+ * Stack Interface
  * @author Donghyeon <20183188>
  */
 public interface StackInterface<E> {
