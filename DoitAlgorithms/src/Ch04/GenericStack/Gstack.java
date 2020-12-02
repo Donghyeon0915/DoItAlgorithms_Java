@@ -35,7 +35,7 @@ public class Gstack<E> {
     
     /*
     * push : 스택에 데이터를 푸시하는 메서드.
-    * 스택이 가득 차서 푸시할 수 없는 경우 예외 OverflowIntStackException을 던짐
+    * 스택이 가득 차서 푸시할 수 없는 경우 예외 RuntimeException(OverflowStackException)을 던짐
      */
     public E push(E data) throws RuntimeException{
         if (ptr >= max) throw new RuntimeException();
@@ -44,7 +44,7 @@ public class Gstack<E> {
 
     /*
     * pop : 스택의 꼭대기에서 데이터를 팝하고 그 값을 반환하는 메서드
-    * 스택이 비어 있어 팝을 할 수 없는 경우 예외 EmptyIntStackException을 던집니다.
+    * 스택이 비어 있어 팝을 할 수 없는 경우 예외 RuntimeException(EmptyStackException)을 던집니다.
      */
     public E pop() throws RuntimeException{
         if(ptr <= 0) throw new RuntimeException();
@@ -53,7 +53,7 @@ public class Gstack<E> {
 
     /*
     * peek : 스택의 꼭대기에 있는 데이터를 "몰래 엿보는" 메서드
-    * 스택이 비어 있는 경우 예외 EmptyIntStackException을 던집니다.
+    * 스택이 비어 있는 경우 예외 RuntimeException(EmptyStackException)을 던집니다.
      */
     public E peek() throws RuntimeException {
         if(ptr <= 0) throw new RuntimeException();
