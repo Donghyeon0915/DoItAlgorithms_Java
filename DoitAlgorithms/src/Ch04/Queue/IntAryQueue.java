@@ -50,9 +50,9 @@ public class IntAryQueue {
         if (num >= max) {
             throw new OverflowIntQueueException();
         }
-        num++;
-
         que[rear++] = data;
+        num++;
+        
         if (rear >= max) {
             rear %= max;
         }
@@ -68,8 +68,9 @@ public class IntAryQueue {
         if (num <= 0) {
             throw new EmptyIntQueueException();
         }
-        num--;
         int dequeData = que[front++];
+        num--;
+        
         if (front >= max) {
             front %= max;
         }
@@ -97,15 +98,17 @@ public class IntAryQueue {
     * 검색에 성공하면 찾은 요소의 인덱스를 반환, 실패시 -1 반환
      */
     public int indexOf(int x) {
-        for (int i = front; i != rear; i++) {
-            if (que[i] == x) {
-                return i;
-            }
-            if (i >= max) {
-                i %= max;
-            }
+//            for (int i = front; i != rear; i++) {
+//                if (que[i] == x) {
+//                    return i;
+//                }
+//                if (i >= max) {
+//                    i %= max;
+//                }
+//            }
+        for (int i = 0; i < num; i++) {
+            if(que[(i + front) % max] == x) return i;
         }
-
         return -1;
     }
 
@@ -154,18 +157,8 @@ public class IntAryQueue {
      */
     public void dump() {
         //System.out.println("front = " + front + " rear = " + rear);
-        if (num != 0 && front == rear) {
-            for (int i : que) {
-                System.out.print(i + " ");
-            }
-        } else {
-            for (int i = front; i != rear; i++) {
-                // System.out.print("i = " + i + " : ");
-                System.out.println(que[i] + " ");
-                if (i >= max) {
-                    i %= max;
-                }
-            }
+        for (int i = 0; i < num; i++) {
+            System.out.print(que[(i + front) % max] + " ");
         }
         System.out.println("");
     }
