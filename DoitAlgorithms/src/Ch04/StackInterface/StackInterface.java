@@ -6,18 +6,28 @@
 package Ch04.StackInterface;
 
 /**
- * Stack Interface
+ *
  * @author Donghyeon <20183188>
  */
-public interface StackInterface<E> {
-    public E push(E data);
-    public E pop();
-    public E peek();
-    public int indexOf(E data);
+public interface StackInterface {
+
+    public int push(int data);
+
+    public int pop();
+
+    public int peek();
+
+    public int indexOf(int data);
+
     public void clear();
+
     public int capacity();
+
     public int size();
+
     public boolean isEmpty();
+
     public boolean isFull();
+
     public void dump();
 }
