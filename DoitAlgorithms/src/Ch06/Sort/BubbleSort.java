@@ -16,6 +16,11 @@ public class BubbleSort {
     /**
      * @param args the command line arguments
      */
+    
+    /*
+    * 버블 정렬
+    * 이웃한 원소와 패스(비교, 교환)를 수행
+    */
     // 패스(pass) : 비교, 교환 작업
     public static int[] bubbleSort2(int[] array) {
         int length = array.length;

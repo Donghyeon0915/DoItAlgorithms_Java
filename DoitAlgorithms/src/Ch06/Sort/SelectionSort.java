@@ -18,6 +18,10 @@ public class SelectionSort {
      * @return 
      */
     
+    /*
+    * 선택 정렬 
+    * 가장 작은 원소를 선택하여 맨 앞으로 보냄
+    */
     public static int[] selectionSort(int[] array){
         int length = array.length;
         int i, j;
