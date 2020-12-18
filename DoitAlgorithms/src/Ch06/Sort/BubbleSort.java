@@ -11,7 +11,7 @@ package Ch06.Sort;
  *
  * @author Donghyeon <20183188>
  */
-public class BubbleSort {
+public class BubbleSort extends SortAPI{
 
     /**
      * @param args the command line arguments
@@ -23,6 +23,7 @@ public class BubbleSort {
     */
     // 패스(pass) : 비교, 교환 작업
     public static int[] bubbleSort2(int[] array) {
+        // 정렬 제대로 안됨(수정 필요)
         int length = array.length;
         /*
         * 마지막 교환이 이루어진 곳의 뒷 부분은 이미 정렬이 되었다고 판단
@@ -77,11 +78,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        int[] array = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-
-        for (int i : bubbleSort2(array)) {
-            System.out.println(i);
-        }
+        SortAPI.printArray(bubbleSort(SortAPI.getTestCase(10, 0, 50)));
     }
 
 }
