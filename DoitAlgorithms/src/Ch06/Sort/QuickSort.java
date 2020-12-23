@@ -5,6 +5,8 @@
  */
 package Ch06.Sort;
 
+import java.util.Stack;
+
 /**
  *
  * @author Donghyeon <20183188>
@@ -41,20 +43,38 @@ public class QuickSort {
          */
     }
     
-    public static void quickSort_n(int[] data, int n){
-        int pl = 0;
-        int pr = n - 1;
-        int pivot = data[(pl + pr) / 2];
+    public static void quickSort_NoRecur(int[] data, int left, int right){
+        Stack<Integer> lStack = new Stack<>();
+        Stack<Integer> rStack = new Stack<>();
         
-        do{   //반복문이 끝나면 반으로 나눠짐
-            while(data[pl] < pivot) pl++;
-            while(data[pr] > pivot) pr--;
+        lStack.push(left);                                          // 그룹의 시작(왼쪽)
+        rStack.push(right);                                         // 그룹의 끝(오른쪽)
+        
+        while(!lStack.isEmpty()){
+            int pl = left = lStack.pop();
+            int pr = right = rStack.pop();
+            int pivot = data[(left + right) / 2];
             
-            if(pl <= pr) SortAPI.swap(data, pl, pr);
-        }while(pl <= pr);
-        
-        
+            do{
+                while(data[pl] < pivot) pl++;
+                while(data[pr] > pivot) pr--;
+                
+                if(pl <= pr) SortAPI.swap(data, pl++, pr--);
+            }while(pl <= pr);
+            
+            
+            if(left < pr){
+                lStack.push(left);                                  // == quickSort(data, left, pr);
+                rStack.push(pr);
+            }
+            if(right > pl){
+                lStack.push(pl);                                    // == quickSort(data, pl, right);
+                rStack.push(right);
+            }
+        }
+
     }
+
     
     static void partition(int[] data, int n) {
         int pl = 0;                                 // 왼쪽 커서
